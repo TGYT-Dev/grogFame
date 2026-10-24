@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://g2rh648ctctf"]
+
+[ext_resource type="Script" uid="uid://d3ey0lf62h7de" path="res://scenes/objects/extends Area2Dfunc _ready() -> void:    add_to_group("algae")func _on_body_entered(body: Node) -> void:    if body.is_in_group("player"):        GameState.eatFood()        body.eatAnimation()        queue_free().gd" id="1_u4qe0"]
+
+[node name="Algae" type="Node2D" unique_id=1552144246]
+script = ExtResource("1_u4qe0")

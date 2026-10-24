@@ -12,6 +12,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1lvd"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"egg",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_qek5x")
@@ -50,14 +55,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfwy1"]
 size = Vector2(51, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1lvd"]
+size = Vector2(2, 2)
+
 [node name="player" type="CharacterBody2D" unique_id=810228106]
 script = ExtResource("1_5gtgg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=223115286]
 sprite_frames = SubResource("SpriteFrames_c1lvd")
-animation = &"tadpoleSwimOpen"
-frame_progress = 0.017975258
+animation = &"egg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=727251303]
+visible = false
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_wfwy1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=656561933]
+
+[node name="Tongue" type="Node2D" parent="." unique_id=1359197760]
+
+[node name="TongueTip" type="Area2D" parent="Tongue" unique_id=48602892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/TongueTip" unique_id=1990326565]
+shape = SubResource("RectangleShape2D_c1lvd")
+
+[node name="Line2D" type="Line2D" parent="Tongue" unique_id=280142588]

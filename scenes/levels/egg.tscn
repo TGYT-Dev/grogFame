@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://dpdf1l8y5xomn"]
 
+[ext_resource type="Script" uid="uid://bv2g6t2dn17a" path="res://scenes/levels/egg.gd" id="1_u5ihq"]
+[ext_resource type="Texture2D" uid="uid://bebrjlyf0auuk" path="res://assets/egg/egg.png" id="2_i0i5v"]
+
 [node name="Egg" type="Node2D" unique_id=1762518770]
+script = ExtResource("1_u5ihq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1519787218]
+texture = ExtResource("2_i0i5v")
