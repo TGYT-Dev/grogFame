@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dh2ufrvqxvwfe"]
+
+[ext_resource type="Script" uid="uid://dbqxuywbqtdbq" path="res://scripts/frog.gd" id="1_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://c82ikx1dan7aa" path="res://assets/tadpole/tadpoleMouthClosed0001.png" id="1_qek5x"]
+[ext_resource type="Texture2D" uid="uid://d20h30gkc3k8h" path="res://assets/tadpole/tadpoleMouthClosed0000.png" id="2_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://bgrouol3pjjth" path="res://assets/tadpole/tadpoleMouthClosed0003.png" id="3_h17s1"]
+[ext_resource type="Texture2D" uid="uid://dmhmo2mubrn1k" path="res://assets/tadpole/tadpoleMouthClosed0002.png" id="4_je7p5"]
+[ext_resource type="Texture2D" uid="uid://blfusf425fdqx" path="res://assets/tadpole/tadpoleMouthOpen0001.png" id="5_fm80t"]
+[ext_resource type="Texture2D" uid="uid://be6it8g8rsuun" path="res://assets/tadpole/tadpoleMouthOpen0000.png" id="6_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://0b644f6xg2va" path="res://assets/tadpole/tadpoleMouthOpen0003.png" id="7_ugbui"]
+[ext_resource type="Texture2D" uid="uid://cbmhob8kcmarl" path="res://assets/tadpole/tadpoleMouthOpen0002.png" id="8_fcs02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1lvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qek5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5gtgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h17s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_je7p5")
+}],
+"loop": 1,
+"name": &"tadpoleSwimClosed",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fm80t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gx1jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ugbui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fcs02")
+}],
+"loop": 1,
+"name": &"tadpoleSwimOpen",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfwy1"]
+size = Vector2(51, 18)
+
+[node name="player" type="CharacterBody2D" unique_id=810228106]
+script = ExtResource("1_5gtgg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=223115286]
+sprite_frames = SubResource("SpriteFrames_c1lvd")
+animation = &"tadpoleSwimOpen"
+frame_progress = 0.017975258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=727251303]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_wfwy1")
