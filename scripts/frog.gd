@@ -33,9 +33,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = moveDir.x * SPEED
 
 	if moveDir.x > 0:
-		sprite.flip_h = true
-	elif moveDir.x < 0:
 		sprite.flip_h = false
+	elif moveDir.x < 0:
+		sprite.flip_h = true
 
 	handleAnimations(moveDir)
 	updateTongue(delta)
@@ -67,8 +67,6 @@ func eatAnimation() -> void:
 			sprite.play("frogEat")
 	isEating = false
 
-
-# --- Tongue mechanic (froglet + frog only) ---
 
 func getMaxTongueLength() -> float:
 	match GameState.currentStage:

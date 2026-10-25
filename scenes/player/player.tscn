@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://be6it8g8rsuun" path="res://assets/tadpole/tadpoleMouthOpen0000.png" id="6_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://0b644f6xg2va" path="res://assets/tadpole/tadpoleMouthOpen0003.png" id="7_ugbui"]
 [ext_resource type="Texture2D" uid="uid://cbmhob8kcmarl" path="res://assets/tadpole/tadpoleMouthOpen0002.png" id="8_fcs02"]
+[ext_resource type="Script" uid="uid://clmmasfj3btxj" path="res://scripts/camera.gd" id="10_h17s1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1lvd"]
 animations = [{
@@ -71,6 +72,11 @@ position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_wfwy1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=656561933]
+limit_left = -4336
+limit_top = -402
+limit_right = 4068
+limit_bottom = 1078
+script = ExtResource("10_h17s1")
 
 [node name="Tongue" type="Node2D" parent="." unique_id=1359197760]
 

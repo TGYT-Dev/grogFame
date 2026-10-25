@@ -1,7 +1,7 @@
 extends Node
 
 @onready var levelContainer: Node = $LevelContainer
-@onready var flashOverlay: ColorRect = $FlashOverlay
+@onready var flashOverlay: ColorRect = $CanvasLayer/FlashOverlay
 
 var stageScenes = {
 	GameState.fState.egg: preload("res://scenes/levels/egg.tscn"),
@@ -19,17 +19,31 @@ func loadCurrentStage() -> void:
 	var scene = stageScenes[GameState.currentStage]
 	levelContainer.add_child(scene.instantiate())
 
+var isTransitioning := false
+
 func onStageComplete() -> void:
-	await playTransformFlash()
+	if isTransitioning:
+		return
+	isTransitioning = true
+
+	await fadeToWhite()
 	GameState.advanceStage()
 	loadCurrentStage()
+	await get_tree().create_timer(0.3).timeout   # hold at full white
+	await fadeFromWhite()
 
-func playTransformFlash() -> void:
+	isTransitioning = false
+
+func fadeToWhite() -> void:
 	flashOverlay.modulate.a = 0.0
 	flashOverlay.visible = true
 	var tween = create_tween()
-	tween.tween_property(flashOverlay, "modulate:a", 1.0, 0.15)
-	tween.tween_property(flashOverlay, "modulate:a", 0.0, 0.3)
+	tween.tween_property(flashOverlay, "modulate:a", 1.0, 0.4)
+	await tween.finished
+
+func fadeFromWhite() -> void:
+	var tween = create_tween()
+	tween.tween_property(flashOverlay, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	flashOverlay.visible = false
 	

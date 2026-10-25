@@ -2,9 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://dh2ufrvqxvwfe" path="res://scenes/player/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://ifmbuxfw46jt" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c1ehmr8kwer27" path="res://scenes/objects/land.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=2113249412]
 script = ExtResource("1_yqjtg")
 
 [node name="player" parent="." unique_id=810228106 instance=ExtResource("1_uwrxv")]
-position = Vector2(301, 261)
+position = Vector2(-756, 1031)
+
+[node name="Land" parent="." unique_id=202056738 instance=ExtResource("3_lnu2h")]
+position = Vector2(17, 0)
+
+[node name="LevelContainer" type="Node" parent="." unique_id=204472625]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=927159071]
+follow_viewport_enabled = true
+
+[node name="FlashOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1105187969]
+visible = false
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
