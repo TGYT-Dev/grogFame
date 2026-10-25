@@ -3,12 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://dh2ufrvqxvwfe" path="res://scenes/player/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://ifmbuxfw46jt" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c1ehmr8kwer27" path="res://scenes/objects/land.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://g2rh648ctctf" path="res://scenes/objects/algae.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=2113249412]
 script = ExtResource("1_yqjtg")
 
 [node name="player" parent="." unique_id=810228106 instance=ExtResource("1_uwrxv")]
 position = Vector2(-756, 1031)
+
+[node name="Algae" parent="." unique_id=1489297972 instance=ExtResource("4_lbhrr")]
+position = Vector2(-1454, 931)
+
+[node name="Algae2" parent="." unique_id=446231820 instance=ExtResource("4_lbhrr")]
+position = Vector2(-1881, 886)
+
+[node name="Algae3" parent="." unique_id=295056911 instance=ExtResource("4_lbhrr")]
+position = Vector2(-710, 997)
+
+[node name="Algae4" parent="." unique_id=273115712 instance=ExtResource("4_lbhrr")]
+position = Vector2(-1647, 831)
+
+[node name="Algae5" parent="." unique_id=1793905434 instance=ExtResource("4_lbhrr")]
+position = Vector2(-1173, 925)
+
+[node name="Algae6" parent="." unique_id=1059549757 instance=ExtResource("4_lbhrr")]
+position = Vector2(-466, 835)
+
+[node name="Algae7" parent="." unique_id=1126985589 instance=ExtResource("4_lbhrr")]
+position = Vector2(-2148, 827)
 
 [node name="Land" parent="." unique_id=202056738 instance=ExtResource("3_lnu2h")]
 position = Vector2(17, 0)

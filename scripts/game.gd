@@ -17,7 +17,12 @@ func loadCurrentStage() -> void:
 	for child in levelContainer.get_children():
 		child.queue_free()
 	var scene = stageScenes[GameState.currentStage]
-	levelContainer.add_child(scene.instantiate())
+	var instance = scene.instantiate()
+	levelContainer.add_child(instance)
+
+	var land: StaticBody2D = instance.get_node_or_null("Land")
+	if land:
+		land.updateWaterBarrier()
 
 var isTransitioning := false
 
@@ -29,7 +34,7 @@ func onStageComplete() -> void:
 	await fadeToWhite()
 	GameState.advanceStage()
 	loadCurrentStage()
-	await get_tree().create_timer(0.3).timeout   # hold at full white
+	await get_tree().create_timer(0.3).timeout
 	await fadeFromWhite()
 
 	isTransitioning = false

@@ -1,6 +1,22 @@
 [gd_scene format=3 uid="uid://g2rh648ctctf"]
 
-[ext_resource type="Script" uid="uid://d3ey0lf62h7de" path="res://scenes/objects/extends Area2Dfunc _ready() -> void:    add_to_group("algae")func _on_body_entered(body: Node) -> void:    if body.is_in_group("player"):        GameState.eatFood()        body.eatAnimation()        queue_free().gd" id="1_u4qe0"]
+[ext_resource type="Script" uid="uid://d1wi71ctywpye" path="res://scripts/algae.gd" id="1_ghnl4"]
+[ext_resource type="Texture2D" uid="uid://yq20oys7hlgm" path="res://assets/food/food.png" id="1_u4qe0"]
 
-[node name="Algae" type="Node2D" unique_id=1552144246]
-script = ExtResource("1_u4qe0")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfwy1"]
+
+[node name="Algae" type="Area2D" unique_id=1926830974]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1_ghnl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=227492414]
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(5, 5)
+texture = ExtResource("1_u4qe0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1410221155]
+position = Vector2(-1.6940659e-21, 1.6940659e-21)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_wfwy1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
